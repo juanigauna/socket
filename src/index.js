@@ -1,10 +1,4 @@
 const { Server } = require('socket.io')
-const cors = require('cors')
-const express= require('express')
-
-const app = express()
-
-app.use(cors('*'))
 
 const server = new Server()
 
@@ -27,5 +21,3 @@ server.on('connection', client => {
         client.broadcast.emit('new-message', data)
     })
 })
-
-app.listen(() => console.log('server working'))
